@@ -28,7 +28,7 @@ resource "azurerm_lb" "lb" {
       public_ip_prefix_id                                = try(frontend_ip_configuration.value.public_ip_prefix_id, null)
     }
   }
-  sku      = try(var.settings.sku, null)
-  sku_tier = try(var.settings.sku_tier, null)
+  sku      = try(title(var.settings.sku), null)
+  sku_tier = try(title(var.settings.sku_tier), null)
   tags     = local.tags
 }

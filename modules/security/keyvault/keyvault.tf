@@ -47,7 +47,7 @@ resource "azurerm_key_vault" "keyvault" {
   }
     
   dynamic "contact" {
-    for_each = lookup(var.settings, "contacts", {})
+    for_each = lookup(var.settings, "contact", {})
 
     content {
       email = contact.value.email

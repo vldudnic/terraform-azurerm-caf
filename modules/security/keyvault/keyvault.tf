@@ -50,8 +50,8 @@ resource "azurerm_key_vault" "keyvault" {
     for_each = lookup(var.settings, "contacts", {})
 
     content {
-      # email = contact.value.email
-      email = "a_201035808@alstomgroup.com"
+      email = contact.value.email
+      # email = "a_201035808@alstomgroup.com"
       name  = try(contact.value.name, null)
       phone = try(contact.value.phone, null)
     }
